@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Tipos
+        run: npx tsc --noEmit
+      - name: Lint
+        run: npx expo lint
+      - name: Pruebas
+        run: npx jest --ci
+      - name: Build web
+        run: npx expo export --platform web
+
+  # Build Android (APK interno) con EAS. Requiere el secreto EXPO_TOKEN
+  # y haber ejecutado una vez `eas init` para enlazar el proyecto.
+  build-android:
+    needs: verificar
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.EAS_BUILD == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: npm ci
+      - run: eas build --platform android --profile preview --non-interactive --no-wait
