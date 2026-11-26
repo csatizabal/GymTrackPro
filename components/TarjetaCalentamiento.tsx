@@ -29,7 +29,7 @@ export function TarjetaCalentamiento({
         <Ionicons
           name={esCardio ? 'heart-outline' : esInicio ? 'flame-outline' : 'snow-outline'}
           size={20}
-          color={esCardio ? '#F43F5E' : esInicio ? COLORES_APP.advertencia : COLORES_APP.primario}
+          color={esCardio ? COLORES_APP.peligro : esInicio ? COLORES_APP.advertencia : COLORES_APP.primario}
         />
         <Text style={[styles.titulo, esCardio && styles.tituloCardio]}>
           {titulo} ({duracion})
@@ -44,7 +44,7 @@ export function TarjetaCalentamiento({
 
 const styles = StyleSheet.create({
   contenedor: {
-    borderRadius: 12,
+    borderRadius: 20,
     padding: 12,
     marginVertical: 6,
   },
@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
     borderLeftColor: COLORES_APP.advertencia,
   },
   contenedorCardio: {
-    backgroundColor: '#3F121E',
+    backgroundColor: COLORES_APP.peligroFondo,
     borderWidth: 1,
-    borderColor: '#881337',
+    borderColor: 'rgba(248, 113, 113, 0.35)',
   },
   filaTitulo: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4 },
   titulo: { fontSize: 15, fontWeight: 'bold', color: COLORES_APP.texto },
-  tituloCardio: { color: '#FDA4AF' },
+  tituloCardio: { color: COLORES_APP.peligro },
   descripcion: { fontSize: 13, color: COLORES_APP.textoSecundario, lineHeight: 18 },
-  descCardio: { color: '#FECDD3' },
+  descCardio: { color: COLORES_APP.textoSecundario },
 });

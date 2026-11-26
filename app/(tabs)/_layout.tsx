@@ -6,35 +6,31 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerStyle: {
-          backgroundColor: COLORES_APP.superficie,
-        },
+        headerStyle: { backgroundColor: COLORES_APP.fondo },
+        headerShadowVisible: false,
         headerTintColor: COLORES_APP.texto,
-        headerTitleStyle: {
-          fontWeight: 'bold',
-          fontSize: 18,
-        },
+        headerTitleStyle: { fontWeight: '800', fontSize: 20 },
+        headerTitleAlign: 'left',
         tabBarStyle: {
           backgroundColor: COLORES_APP.superficie,
           borderTopColor: COLORES_APP.borde,
-          height: 70,
-          paddingBottom: 8,
+          borderTopWidth: 1,
+          height: 72,
+          paddingBottom: 10,
           paddingTop: 8,
         },
         tabBarActiveTintColor: COLORES_APP.primario,
         tabBarInactiveTintColor: COLORES_APP.textoSecundario,
-        tabBarLabelStyle: {
-          fontSize: 14,
-          fontWeight: '600',
-        },
+        tabBarLabelStyle: { fontSize: 14, fontWeight: '700' },
       }}>
       <Tabs.Screen
         name="index"
         options={{
+          headerShown: false,
           title: 'Inicio',
           tabBarLabel: 'Inicio',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="calendar-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'calendar' : 'calendar-outline'} size={size} color={color} />
           ),
         }}
       />
@@ -43,8 +39,8 @@ export default function TabsLayout() {
         options={{
           title: 'Catálogo',
           tabBarLabel: 'Catálogo',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="barbell-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'barbell' : 'barbell-outline'} size={size} color={color} />
           ),
         }}
       />
@@ -53,8 +49,8 @@ export default function TabsLayout() {
         options={{
           title: 'Historial',
           tabBarLabel: 'Historial',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="stats-chart-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'stats-chart' : 'stats-chart-outline'} size={size} color={color} />
           ),
         }}
       />
@@ -63,8 +59,8 @@ export default function TabsLayout() {
         options={{
           title: 'Medidas',
           tabBarLabel: 'Medidas',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="fitness-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'fitness' : 'fitness-outline'} size={size} color={color} />
           ),
         }}
       />
@@ -73,8 +69,8 @@ export default function TabsLayout() {
         options={{
           title: 'Perfil',
           tabBarLabel: 'Perfil',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={color} />
           ),
         }}
       />

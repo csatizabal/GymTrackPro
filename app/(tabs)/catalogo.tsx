@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 12,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,
     paddingHorizontal: 12,
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   cuadricula: { flexDirection: 'row', flexWrap: 'wrap', marginHorizontal: -6 },
   itemResultado: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 12,
+    borderRadius: 20,
     padding: 14,
     marginBottom: 10,
     flexDirection: 'row',

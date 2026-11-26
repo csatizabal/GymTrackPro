@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     padding: 14,
     marginBottom: 14,
     borderWidth: 1,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   meta: { fontSize: 14, color: COLORES_APP.textoSecundario, marginTop: 2 },
   tarjeta: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     padding: 14,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,

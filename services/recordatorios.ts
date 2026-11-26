@@ -1,9 +1,29 @@
 import { Platform } from 'react-native';
-import * as Notifications from 'expo-notifications';
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 import { NOMBRES_DIA } from '@/constants/colores';
 import type { DiaPlan, DiaSemana, Recordatorio } from '@/types/gym';
 
 export const CANAL_ANDROID = 'recordatorios';
+
+/** true dentro de Expo Go (app de la tienda), donde expo-notifications está limitado. */
+export const esExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+
+/** Las notificaciones locales solo funcionan en un development build o en la app instalada. */
+export function notificacionesDisponibles(): boolean {
+  return Platform.OS !== 'web' && !esExpoGo;
+}
+
+type ModuloNotificaciones = typeof import('expo-notifications');
+let moduloNotificaciones: Promise<ModuloNotificaciones> | undefined;
+
+/**
+ * Carga expo-notifications bajo demanda. Un import estático en Expo Go dispara
+ * advertencias al arrancar aunque no se use, por eso solo se importa fuera de él.
+ */
+function cargarNotificaciones(): Promise<ModuloNotificaciones> {
+  moduloNotificaciones ??= import('expo-notifications');
+  return moduloNotificaciones;
+}
 
 /** Día de la semana en el formato de expo-notifications: 1 = domingo … 7 = sábado. */
 const WEEKDAY: Record<DiaSemana, number> = {
@@ -53,8 +73,9 @@ export async function programarRecordatorios(
   plan: DiaPlan[],
   r: Recordatorio
 ): Promise<ResultadoProgramacion> {
-  if (Platform.OS === 'web') return 'no-disponible';
+  if (!notificacionesDisponibles()) return 'no-disponible';
 
+  const Notifications = await cargarNotificaciones();
   await Notifications.cancelAllScheduledNotificationsAsync();
   if (!r.activo) return 'desactivado';
 
@@ -85,8 +106,9 @@ export async function programarRecordatorios(
 }
 
 /** Cómo mostrar las notificaciones si llegan con la app abierta. Llamar una vez al arrancar. */
-export function configurarManejadorNotificaciones(): void {
-  if (Platform.OS === 'web') return;
+export async function configurarManejadorNotificaciones(): Promise<void> {
+  if (!notificacionesDisponibles()) return;
+  const Notifications = await cargarNotificaciones();
   Notifications.setNotificationHandler({
     handleNotification: async () => ({
       shouldShowBanner: true,

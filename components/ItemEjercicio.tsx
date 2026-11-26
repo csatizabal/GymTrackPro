@@ -33,7 +33,7 @@ export function ItemEjercicio({
         accessibilityLabel={`Marcar ${ejercicio.nombre} como ${completado ? 'pendiente' : 'completado'}`}>
         <View style={[styles.checkbox, completado && styles.checkboxMarcado]}>
           {completado && (
-            <Ionicons name="checkmark" size={18} color="#0F172A" />
+            <Ionicons name="checkmark" size={18} color={COLORES_APP.fondo} />
           )}
         </View>
 
@@ -83,7 +83,7 @@ export function ItemEjercicio({
 const styles = StyleSheet.create({
   contenedor: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 12,
+    borderRadius: 20,
     marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   contenedorCompletado: {
     opacity: 0.65,
-    backgroundColor: '#131D2D',
+    backgroundColor: COLORES_APP.fondo,
   },
   contenedorAdvertencia: {
     borderColor: COLORES_APP.advertenciaBorde,

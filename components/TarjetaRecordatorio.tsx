@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import { Platform, StyleSheet, Switch, Text, View } from 'react-native';
+import { StyleSheet, Switch, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BotonAnimado } from '@/components/BotonAnimado';
 import { CampoFormulario } from '@/components/CampoFormulario';
 import { COLORES_APP } from '@/constants/colores';
-import { formatearHora, parsearHora, type ResultadoProgramacion } from '@/services/recordatorios';
+import {
+  formatearHora,
+  notificacionesDisponibles,
+  parsearHora,
+  type ResultadoProgramacion,
+} from '@/services/recordatorios';
 import type { Recordatorio } from '@/types/gym';
 
 interface TarjetaRecordatorioProps {
@@ -16,7 +21,8 @@ const MENSAJES: Record<ResultadoProgramacion, string> = {
   programado: 'Listo: recibirás un aviso cada día de entreno (lunes a sábado).',
   desactivado: 'Recordatorios desactivados.',
   'sin-permiso': 'No hay permiso de notificaciones. Actívalo en los ajustes del teléfono.',
-  'no-disponible': 'Las notificaciones locales no están disponibles en la versión web.',
+  'no-disponible':
+    'Las notificaciones locales no funcionan en la web ni en Expo Go. Usa un development build (npx expo run:android o eas build --profile development).',
 };
 
 /** Activa y programa el recordatorio semanal de entrenamiento (expo-notifications). */
@@ -24,7 +30,7 @@ export function TarjetaRecordatorio({ recordatorio, onGuardar }: TarjetaRecordat
   const [hora, setHora] = useState(formatearHora(recordatorio));
   const [error, setError] = useState<string | undefined>();
   const [mensaje, setMensaje] = useState<string | undefined>(
-    Platform.OS === 'web' ? MENSAJES['no-disponible'] : undefined
+    notificacionesDisponibles() ? undefined : MENSAJES['no-disponible']
   );
 
   const guardar = async (nuevoActivo: boolean) => {
@@ -86,7 +92,7 @@ export function TarjetaRecordatorio({ recordatorio, onGuardar }: TarjetaRecordat
 const styles = StyleSheet.create({
   tarjeta: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,
     padding: 14,
@@ -102,7 +108,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     minHeight: 48,
     paddingHorizontal: 14,
-    borderRadius: 10,
+    borderRadius: 999,
     backgroundColor: COLORES_APP.superficieClara,
     alignItems: 'center',
     justifyContent: 'center',

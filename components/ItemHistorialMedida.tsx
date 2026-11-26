@@ -30,7 +30,7 @@ export function ItemHistorialMedida({ item }: ItemHistorialMedidaProps) {
 const styles = StyleSheet.create({
   item: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 12,
+    borderRadius: 20,
     padding: 14,
     marginBottom: 10,
     borderWidth: 1,

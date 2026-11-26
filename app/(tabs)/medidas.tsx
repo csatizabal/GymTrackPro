@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   titulo: { fontSize: 22, fontWeight: 'bold', color: COLORES_APP.texto, marginBottom: 12 },
   botonToggle: {
     backgroundColor: COLORES_APP.primario,
-    borderRadius: 10,
+    borderRadius: 14,
     minHeight: 48,
     flexDirection: 'row',
     alignItems: 'center',

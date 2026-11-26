@@ -8,7 +8,7 @@ import { NOMBRE_BD } from '@/db/esquema';
 import { inicializarBaseDatos } from '@/db/inicializar';
 import { configurarManejadorNotificaciones } from '@/services/recordatorios';
 
-configurarManejadorNotificaciones();
+void configurarManejadorNotificaciones();
 
 export default function RootLayout() {
   return (
@@ -19,9 +19,10 @@ export default function RootLayout() {
           <StatusBar style="light" />
           <Stack
             screenOptions={{
-              headerStyle: { backgroundColor: COLORES_APP.superficie },
-              headerTintColor: COLORES_APP.texto,
-              headerTitleStyle: { fontWeight: 'bold', fontSize: 18 },
+              headerStyle: { backgroundColor: COLORES_APP.fondo },
+              headerShadowVisible: false,
+              headerTitleStyle: { fontWeight: '800', fontSize: 18 },
+              headerTintColor: COLORES_APP.primario,
               contentStyle: { backgroundColor: COLORES_APP.fondo },
               headerBackTitle: 'Atrás',
             }}>

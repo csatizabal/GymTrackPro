@@ -114,7 +114,7 @@ export function RegistroSeries({
 const styles = StyleSheet.create({
   tarjeta: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,
     padding: 16,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 6,
     minHeight: 48,
-    borderRadius: 10,
+    borderRadius: 999,
     backgroundColor: COLORES_APP.primario,
   },
   botonDeshabilitado: { opacity: 0.6 },
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   numero: {
     width: 28,
     height: 28,
-    borderRadius: 14,
+    borderRadius: 20,
     backgroundColor: COLORES_APP.superficieClara,
     color: COLORES_APP.texto,
     textAlign: 'center',

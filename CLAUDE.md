@@ -7,6 +7,8 @@ Datos en SQLite (expo-sqlite). El origen de cada parte (GymTrack2 / GymTrack / M
 Lee también `AGENTS.md` (reglas de Expo: no confiar en APIs de memoria, consultar
 https://docs.expo.dev/versions/v57.0.0/ y usar `npx expo install` para dependencias).
 
+- Estilos: usa los tokens de `constants/tema.ts` (ESPACIO, RADIO, TIPO, SOMBRA) y los colores de `constants/colores.ts`; no hardcodees colores.
+
 ## Estructura
 
 | Carpeta | Contenido |

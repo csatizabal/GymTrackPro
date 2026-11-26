@@ -74,7 +74,7 @@ export function TarjetaResumenImc({
 const styles = StyleSheet.create({
   contenedor: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     padding: 16,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,

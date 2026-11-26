@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   subtitulo: { fontSize: 14, color: COLORES_APP.textoSecundario },
   lista: { gap: 10, marginTop: 4 },
   tarjetaEjercicio: {
-    backgroundColor: COLORES_APP.superficie, borderRadius: 12, padding: 14,
+    backgroundColor: COLORES_APP.superficie, borderRadius: 20, padding: 14,
     borderWidth: 1, borderColor: COLORES_APP.borde, flexDirection: 'row',
     alignItems: 'center', justifyContent: 'space-between', minHeight: 54,
   },

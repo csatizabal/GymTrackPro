@@ -3,30 +3,32 @@ import type { DiaSemana, GrupoMuscular } from '@/types/gym';
 // Paleta única de la app (origen: GymTrack2). Los componentes traídos de
 // GymTrack usaban `TEMA`; se migraron a estas mismas claves.
 export const COLORES_DIAS: Record<DiaSemana, string> = {
-  lunes: '#22C3E6',
-  martes: '#F59E0B',
-  miercoles: '#22C55E',
-  jueves: '#EC4899',
-  viernes: '#22C3E6',
-  sabado: '#A3E635',
+  lunes: '#38BDF8',
+  martes: '#FB923C',
+  miercoles: '#34D399',
+  jueves: '#F472B6',
+  viernes: '#38BDF8',
+  sabado: '#C6F432',
 };
 
+// Paleta "Grafito + lima" (rediseño moderno). Las claves no cambian: todos los
+// componentes la consumen, así el cambio de diseño se hace en un solo lugar.
 export const COLORES_APP = {
-  fondo: '#0F172A',
-  superficie: '#1E293B',
-  superficieClara: '#334155',
-  borde: '#475569',
-  texto: '#F8FAFC',
-  textoSecundario: '#94A3B8',
-  primario: '#38BDF8',
-  primarioFondo: 'rgba(56, 189, 248, 0.16)',
-  acento: '#F59E0B',
-  exito: '#22C55E',
-  peligro: '#EF4444',
-  peligroFondo: 'rgba(239, 68, 68, 0.16)',
-  advertencia: '#EAB308',
-  advertenciaFondo: '#713F12',
-  advertenciaBorde: '#CA8A04',
+  fondo: '#0B0D12',
+  superficie: '#151922',
+  superficieClara: '#202634',
+  borde: '#262D3B',
+  texto: '#F5F7FA',
+  textoSecundario: '#9AA3B2',
+  primario: '#C6F432',
+  primarioFondo: 'rgba(198, 244, 50, 0.14)',
+  acento: '#8B7CFF',
+  exito: '#34D399',
+  peligro: '#F87171',
+  peligroFondo: 'rgba(248, 113, 113, 0.14)',
+  advertencia: '#FBBF24',
+  advertenciaFondo: 'rgba(251, 191, 36, 0.14)',
+  advertenciaBorde: '#B7791F',
 };
 
 // Catálogos de nombres y orden (origen: GymTrack).

@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   resumen: {
     flexDirection: 'row',
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,
     paddingVertical: 14,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   textoVacio: { fontSize: 15, color: COLORES_APP.textoSecundario, textAlign: 'center' },
   tarjeta: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,
     padding: 14,

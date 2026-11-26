@@ -76,7 +76,7 @@ export function ProgresionEjercicio({
 const styles = StyleSheet.create({
   tarjeta: {
     backgroundColor: COLORES_APP.superficie,
-    borderRadius: 14,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORES_APP.borde,
     padding: 16,

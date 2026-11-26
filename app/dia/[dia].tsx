@@ -115,7 +115,7 @@ export default function DetalleDiaScreen() {
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: COLORES_APP.fondo },
   scroll: { padding: 16, paddingBottom: 32 },
-  tarjetaEncabezado: { backgroundColor: COLORES_APP.superficie, borderRadius: 14, padding: 16, marginBottom: 4 },
+  tarjetaEncabezado: { backgroundColor: COLORES_APP.superficie, borderRadius: 20, padding: 16, marginBottom: 4 },
   subtituloEnfoque: { fontSize: 14, color: COLORES_APP.textoSecundario },
   enfoquePrincipal: { fontSize: 22, fontWeight: 'bold', marginVertical: 4 },
   seccionTitulo: { fontSize: 18, fontWeight: 'bold', color: COLORES_APP.texto, marginTop: 12, marginBottom: 8 },

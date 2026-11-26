@@ -100,3 +100,25 @@ Fusión de dos entregas del parcial final de Desarrollo de Aplicaciones Móviles
 `expo-router-ts`, `nueva-pantalla-componente`, `base-datos-sqlite` y `verificar-app`.
 
 > El socio "Andrés Gómez" es ficticio. No cargar datos personales ni de salud reales.
+
+## Diseño (v1.2, tema "Grafito + lima")
+
+- Paleta oscura moderna en `constants/colores.ts` (fondo `#0B0D12`, acento lima `#C6F432`, violeta `#8B7CFF`).
+- Tokens de diseño en `constants/tema.ts`: `ESPACIO`, `RADIO`, `TIPO`, `SOMBRA`. Úsalos en lugar de números sueltos.
+- Inicio con saludo, tarjeta destacada **Hoy** (progreso, series y botón "Empezar entrenamiento") y plan semanal con franja de color por día.
+- Pestañas con iconos rellenos al estar activas, encabezados sin sombra y botones tipo píldora.
+
+## Expo Go vs. development build (notificaciones)
+
+Desde el SDK 53, `expo-notifications` está limitado en **Expo Go** y muestra advertencias al cargarse. Por eso `services/recordatorios.ts` detecta Expo Go (`Constants.executionEnvironment === ExecutionEnvironment.StoreClient`) y solo carga el módulo con `import()` dinámico fuera de él:
+
+- **En Expo Go**: la app funciona completa, salvo los recordatorios. La tarjeta de Perfil avisa que no están disponibles y no salen advertencias.
+- **Para probar los recordatorios**, usa un *development build* (ya incluye `expo-dev-client`):
+  ```bash
+  npx expo run:android                      # build local (requiere Android Studio)
+  # o en la nube:
+  eas build --profile development --platform android
+  npx expo start --dev-client               # luego abre la app instalada
+  ```
+
+Si aparece **"Cannot connect to Expo CLI"**, el teléfono perdió la conexión con el servidor de desarrollo. Revisa que el PC y el teléfono estén en la misma Wi‑Fi o usa `npx expo start --tunnel`.

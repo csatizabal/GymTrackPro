@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORES_APP.advertenciaFondo,
     borderColor: COLORES_APP.advertenciaBorde,
     borderWidth: 1.5,
-    borderRadius: 12,
+    borderRadius: 20,
     padding: 12,
     marginVertical: 10,
     flexDirection: 'row',
